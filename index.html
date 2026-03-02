@@ -28,17 +28,49 @@ https://www.w3schools.com/w3css/default.asp
 https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-file
 -->
 	
-<head> 
+	<head> 
 	<title>Hello World</title>  
-]	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<link rel="stylesheet" href="w3.css">
 	<link rel="stylesheet" href="w3-colors-flat.css">
 </head> 
 
 <script>
+// This counts the insomnia and code answers
+        var insomnia_count = 0;
+		//This counts the sleep deprivation and code answers
+        var sleepdeprivation_count = 0;
+		//Total number of diagnostic questions
+		var total_questions = 7;
 
-	//YOUR JAVASCRIPT GOES HERE
+		//Resets both counters back to zero
+		function resetCounts(){
+	//Counts the allergy count and code answers
+    insomnia_count = 0;
+	//Counts the cold count and codes answers
+    sleepdeprivation_count = 0;
+}
+		//Increases the insomnia counter by 1
+		function insomniaAdd(){
+    insomnia_count++;
+}
+		//Increases the sleep deprivation counter by 1
+		function sleepdeprivationAdd(){
+    sleepdeprivation_count++;
+}
+	function showResults(){
+    // Calculate insomnia percentage
+    var insomnia_percent = ((insomnia_count / total_questions) * 100);
+	//calculate sleep deprivation percentage
+    var sleepdeprivation_percent = ((sleepdeprivation_count / total_questions) * 100);
+	//this is the test shown in the results pags 
+	var resultText = 
+	"Insomnia Likelihood: " + insomnia_percent + "%<br>" +
+	"Sleep Deprivation Likelihood: " + sleepdeprivation_percent + "%";
+	document.getElementById("diagnosis").innerHTML = resultText;
+
+}
 
 </script>	
 
@@ -64,12 +96,145 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
     left: 0vw;
     z-index: 1;
 }
+	img, object{
+    	max-height:90%;
+        max-width:90%;
+}
+	
 </style>
 
 <body>
+<div id="header" class="w3-container w3-flat-carrot">
+	<h1>Insomnia or Sleep Deprivation?</h1>
+</div>
 	
-	<!-- HERE IS WHERE ALL OF YOUR HTML PAGES GO -->
-	REPLACE THIS TEXT
+<div id="content" class="w3-container">
+	<p>Are you feeling like you might have insomnia but wonder if it is sleep deprivation. Answer a few short questions to find out!</p>
+	
+	<a href="#one" class="w3-btn w3-grey w3-round"> Get Started </a>
+	
+	<p>The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at 		Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only. Any user of this code 			does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.</p>
+ 	
+	<p>THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.</p>
+</div> <!-- adding this because it seems to be missing????? -->
+
+<!-- Question 1 Page-->
+<div class="page" id="one">
+	<div class="w3-container w3-flat-carrot">
+		<h1>Question 1</h1>
+	</div>
+	
+    	<div class="w3-container">
+        <p>Put Question 1 content here.</p>   
+			<p>Do you lie awake in bed for long periods of times, frustrated, unable to fall asleep?</p>    
+		<a href="#two"onclick="insomniaAdd();"class="w3-btn w3-pink">Yes</a><!-- Button for yes, adds to insomnia-->
+		<a href="#two"onclick="sleepdeprivationAdd();"class="w3-btn w3-pink">No</a><!-- Button for no, adds to sleep deprivation-->
+ 	</div><!-- /content -->
+</div>
+
+<!-- Question 2 Page-->
+<div class="page" id="two">
+	<div class="w3-container w3-flat-carrot">
+		<h1>Question 2</h1>
+	</div>
+	<div class="w3-container">
+		<p>Content of page 2 goes here.</p>
+			<p>When you finally lie down, do you fall asleep almost immediately?</p>    
+	<a href="#three"onclick="sleepdeprivationAdd();"class="w3-btn w3-blue">Yes</a><!-- Button for yes, adds to sleep deprivation-->
+    <a href="#three"onclick="insomniaAdd();"class="w3-btn w3-blue">No</a><!-- Button for no, adds to insomnia-->
+	 </div><!-- /content -->
+</div>
+
+
+	<!-- Question 3 Page-->
+<div class="page" id="three">
+	<div class="w3-container w3-flat-carrot">
+		<h1>Question 3</h1>
+	</div>
+	
+	<div class="w3-container">
+		<p>Content of page 3 goes here.</p>
+		<p>Do you wake up multiple times in the middle of the night and find it difficult to return back to sleep?</p>    
+	<a href="#four"onclick="insomniaAdd();"class="w3-btn w3-orange">Yes</a><!-- Button for yes, adds to insomnia-->
+    <a href="#four"onclick="sleepdeprivationAdd();"class="w3-btn w3-orange"> No</a><!-- Button for no, adds to sleep deprivation-->
+	 </div><!-- /content -->
+</div>
+
+
+	<!-- Question 4 Page-->
+<div class="page" id="four">
+	<div class="w3-container w3-flat-carrot">
+		<h1>Question 4</h1>
+	</div>
+	
+	<div class="w3-container">
+		<p>Content of page 4 goes here.</p>
+		<p>Are you constantly anxious or worried about how well you will sleep tonight?</p>    
+	<a href="#five"onclick="insomniaAdd();"class="w3-btn w3-purple">Yes</a><!-- Button for yes, adds to insomnia-->
+    <a href="#five"onclick="sleepdeprivationAdd();"class="w3-btn w3-purple">No</a><!-- Button for no, adds to sleep deprivation-->
+	 </div><!-- /content -->
+</div>
+
+
+	<!-- Question 5 Page-->
+<div class="page" id="five">
+	<div class="w3-container w3-flat-carrot">
+		<h1>Question 5</h1>
+	</div>
+	
+	<div class="w3-container">
+		<p>Content of page 5 goes here.</p>
+		<p>Do you wake up feeling unrefreshed, even if you spent 7+ hours in bed?</p>    
+	<a href="#six"onclick="insomniaAdd();"class="w3-btn w3-green"> Yes</a><!-- Button for yes, adds to insomnia-->
+    <a href="#six"onclick="sleepdeprivationAdd();"class="w3-btn w3-green"> No</a><!-- Button for no, adds to sleep deprivation-->
+ 	</div><!-- /content -->
+</div>
+
+
+	<!-- Question 6 Page-->
+<div class="page" id="six">
+	<div class="w3-container w3-flat-carrot">
+		<h1>Question 6</h1>
+	</div>
+	
+	<div class="w3-container">
+		<p>Content of page 6 goes here.</p>
+		<p>Do you wake up far earlier than your alarm or scheduled wake-up time?</p>    
+	<a href="#seven"onclick="insomniaAdd();"class="w3-btn w3-black"> Yes</a><!-- Button for yes, adds to insomnia-->
+    <a href="#seven"onclick="sleepdeprivationAdd();"class="w3-btn w3-black">No</a><!-- Button for no, adds to sleep deprivation-->
+ 	</div><!-- /content -->
+</div>
+
+	<!-- Question 7 Page-->
+<div class="page" id="seven">
+	<div class="w3-container w3-flat-carrot">
+		<h1>Question 7</h1>
+	</div>
+	
+	<div class="w3-container">
+		<p>Content of page 7 goes here.</p>
+		<p>Do you struggle to nap or sleep during the day, even though you are exhausted and under-slept?</p>    
+	<a href="#results"onclick="insomniaAdd();showResults();"class="w3-btn w3-black"> Yes</a><!-- Button for yes, adds to insomnia-->
+    <a href="#results"onclick="sleepdeprivationAdd();showResults();"class="w3-btn w3-black">No</a><!-- Button for no, adds to sleep deprivation-->
+ 	</div><!-- /content -->
+</div>
+
+
+	<!-- Results Page-->
+<div class="page" id="results">
+	<div class="w3-container w3-flat-carrot">
+		<h1>Results</h1>
+	</div>
+	
+	<div class="w3-container">
+		<p id="diagnosis"></p>
+	</div><!-- /content -->
+</div>
+
+
+<footer class="w3-bottom w3-container w3-flat-carrot">
+	<p>DIY!</p>
+</footer>
 	
 </body>
 </html>
